@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&J Hair Salon - 专业美发沙龙</title>
+    <style>
+        /* 基础样式与粉色主题 */
+        :root {
+            --primary-pink: #ffb6c1;
+            --light-pink: #ffdfe5;
+            --dark-pink: #d88a96;
+            --text-color: #333;
+            --light-text: #777;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: #fffafa;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--dark-pink);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--text-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--dark-pink);
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--primary-pink) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--dark-pink);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 服务部分 */
+        .services {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-pink);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-pink);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 200px;
+            width: 100%;
+            background-color: var(--light-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-pink);
+            font-weight: bold;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-pink);
+        }
+        
+        .service-content p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        /* 关于我们 */
+        .about {
+            padding: 60px 0;
+            background: var(--light-pink);
+            border-radius: 30px;
+            margin: 50px 0;
+        }
+        
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-pink);
+            color: var(--dark-pink);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--dark-pink);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href=" " class="logo">D&J <span>Hair Salon</span></a >
+                <ul class="nav-links">
+                    <li><a href="#">首页</a ></li>
+                    <li><a href="#services">服务</a ></li>
+                    <li><a href="#about">关于我们</a ></li>
+                    <li><a href="#contact">预约</a ></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1>发现你的美丽，绽放自信光彩</h1>
+            <p>D&J Hair Salon 专注于为您提供专业、个性化的美发服务，让您的发型展现独特魅力</p >
+            <a href="#contact" class="btn">立即预约</a >
+        </div>
+    </section>
+
+    <!-- 服务部分 -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>我们的专业服务</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Soft Rebonding -->
+                <div class="service-card">
+                    <div class="service-img">[Soft Rebonding 图片]</div>
+                    <div class="service-content">
+                        <h3>柔顺拉直 (Soft Rebonding)</h3>
+                        <p>我们使用温和的配方和专业的技术，为您打造自然顺直的秀发，减少毛躁，增加发丝光泽度，效果持久且不伤发质。</p >
+                    </div>
+                </div>
+                
+                <!-- Keratin Treatment -->
+                <div class="service-card">
+                    <div class="service-img">[Keratin Treatment 图片]</div>
+                    <div class="service-content">
+                        <h3>角蛋白护理 (Keratin Treatment)</h3>
+                        <p>富含角蛋白的护理能深入修复受损发质，填充发丝空洞，恢复头发弹性与健康，特别适合烫染后干燥脆弱的头发。</p >
+                    </div>
+                </div>
+                
+                <!-- Organic Colouring -->
+                <div class="service-card">
+                    <div class="service-img">[Organic Colouring 图片]</div>
+                    <div class="service-content">
+                        <h3>有机染发 (Organic Colouring)</h3>
+                        <p>采用植物提取的有机染发剂，无氨无刺激性化学成分，色彩自然持久，同时滋养发丝，多种时尚色系供您选择。</p >
+                    </div>
+                </div>
+                
+                <!-- Wash Hair -->
+                <div class="service-card">
+                    <div class="service-img">[Wash Hair 图片]</div>
+                    <div class="service-content">
+                        <h3>专业洗发 (Wash Hair)</h3>
+                        <p>不仅仅是清洁，我们的专业洗发服务包含头皮按摩、温度调控和适合您发质的护理产品，让您享受放松的护发体验。</p >
+                    </div>
+                </div>
+                
+                <!-- Bleaching -->
+                <div class="service-card">
+                    <div class="service-img">[Bleaching 图片]</div>
+                    <div class="service-content">
+                        <h3>专业漂发 (Bleaching)</h3>
+                        <p>使用高品质漂粉和科学配比的开发剂，最大限度减少对头发的伤害，为后续染发提供完美底色，均匀不伤发。</p >
+                    </div>
+                </div>
+                
+                <!-- Hair Iron -->
+                <div class="service-card">
+                    <div class="service-img">[Hair Iron 图片]</div>
+                    <div class="service-content">
+                        <h3>专业夹板造型 (Hair Iron)</h3>
+                        <p>采用温度可控的专业夹板，配合热保护产品，打造顺直、卷曲或纹理造型，持久定型且不损伤发质。</p >
+                    </div>
+                </div>
+                
+                <!-- Hair Setting -->
+                <div class="service-card">
+                    <div class="service-img">[Hair Setting 图片]</div>
+                    <div class="service-content">
+                        <h3>发型定型 (Hair Setting)</h3>
+                        <p>根据您的脸型、发质和个人风格，设计并打造最适合您的发型，使用专业产品确保造型持久美观。</p >
+                    </div>
+                </div>
+                
+                <!-- Cold Perm -->
+                <div class="service-card">
+                    <div class="service-img">[Cold Perm 图片]</div>
+                    <div class="service-content">
+                        <h3>冷烫 (Cold Perm)</h3>
+                        <p>低温烫发技术，减少对头发的热损伤，创造自然持久的卷度，适合各种发质，特别是细软和受损发质。</p >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于 D&J Hair Salon</h2>
+            </div>
+            <div class="about-content">
+                <p>D&J Hair Salon由两位热爱美发的年轻创始人创立，我们的使命是为每一位顾客打造专属的美丽发型。</p >
+                <p>沙龙采用高品质的美发产品，结合最新的美发技术和时尚趋势，我们的团队经过严格培训，致力于提供最专业的服务。</p >
+                <p>在这里，您不仅能获得美丽的发型，还能享受轻松愉悦的美发体验。我们相信，一个好的发型能够增强自信，展现个性。</p >
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <h3>D&J Hair Salon</h3>
+                <p>营业时间: 周一至周日 10:00 - 20:00</p >
+                <p>地址: 某某市某某区某某路123号</p >
+                <p>预约电话: 0123-4567890</p >
+                
+                <div class="social-links">
+                    <a href="#">微</a >
+                    <a href="#">微</a >
+                    <a href="#">抖</a >
+                    <a href="#">小</a >
+                </div>
+                
+                <p class="copyright">© 2023 D&J Hair Salon. 版权所有</p >
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
